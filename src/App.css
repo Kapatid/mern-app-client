@@ -1,0 +1,46 @@
+.app {
+  display: grid;
+  place-items: center;
+  min-width: 65%;
+  min-height: 100vh;
+}
+
+.app-body {
+  display: grid;
+  padding-bottom: 30px;
+  grid-template-columns: 0.8fr 0.2fr;
+  grid-template-areas:
+    "posts form";
+  column-gap: 2rem;
+  width: 100%;
+}
+
+.posts {
+  grid-area: posts;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* MOBILE */
+@media (max-width: 35em) {
+  .app-body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "form"
+      "posts";
+
+    place-items: center;
+    row-gap: 2rem;
+  }
+  .posts {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+}
+/* DESKTOP */
+/* @media (min-width: 35em) {
+
+} */
+

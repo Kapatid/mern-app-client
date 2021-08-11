@@ -1,0 +1,71 @@
+.auth-form {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  height: max-content;
+  width: 250px;
+  align-self: start;
+}
+
+.auth-form section {
+  display: grid;
+  margin: 0 0 2rem 0;
+  position: relative;
+  width: 100%;
+}
+
+.auth-form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid #3b8aa0;
+  color: #61dafb;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.auth-form input:focus {
+  border-bottom: 1.5px solid #61dafb;
+}
+
+.auth-form label {
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  font-size: 0.9rem;
+  top: 5px;
+  padding-left: 4px;
+  color: #61dafb63;
+}
+
+.auth-form input:not(input[value='']) ~ label,
+.auth-form input:focus ~ label {
+  font-size: 0.7rem;
+  top: -14px;
+}
+
+.auth-form button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.4rem;
+  cursor: pointer;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem 1.8rem 0.8rem 1.8rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: 100%;
+}
+
+.auth-form .google {
+  background-color: transparent;
+  color:#61dafb;
+  font-weight: normal;
+  border: 2px solid #61dafb;
+  box-shadow: none;
+}

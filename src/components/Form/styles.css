@@ -1,0 +1,131 @@
+.form {
+  display: grid;
+  grid-area: form;
+  padding: 2rem 2rem 0 2rem;
+  border: none;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 20px;
+  width: 100%;
+  height: 73vh;
+}
+
+.form-off {
+  height: 73vh;
+  width: 100%;
+  padding: 0 4rem 0 4rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* MOBILE */
+@media (max-width: 35em) {
+  .form {
+    box-shadow: none;
+  }
+  .form-off {
+    padding: 0;
+    height: 100%;
+    text-align: center;
+  }
+}
+
+.form h2 {
+  text-align: center;
+  width: 100%;
+  margin: 0 0 2rem 0;
+}
+
+.form section {
+  display: grid;
+  margin: 0 0 2rem 0;
+  position: relative;
+}
+
+.form input[type='text'] {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid #3b8aa0;
+  color: #61dafb;
+  padding: 0.4rem;
+}
+
+.form input[type='text']:focus{
+  border-bottom: 1.5px solid #61dafb;
+}
+
+.form label:not([for='img-upload']){
+  transition: all 0.1s ease-in-out;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  font-size: 0.9rem;
+  top: 5px;
+  padding-left: 4px;
+  color: #61dafb63;
+}
+
+.form input[type='text']:not(input[value='']) ~ label:not([for='img-upload']),
+.form input[type='text']:focus ~ label:not([for='img-upload']) {
+  font-size: 0.7rem;
+  top: -14px;
+}
+
+.form label[for='img-upload']{
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  padding-left: 4px;
+  color: #61dafb63;
+}
+
+.form .upload__image-wrapper,
+.form .image-item__btn-wrapper {
+  display: grid;
+  place-items: center;
+}
+
+.form .image-item {
+  display: flex;
+  place-items: center;
+}
+
+.form .upload__image-wrapper > input {
+  cursor: pointer;
+  border: 3px dashed #3b8aa0;
+  border-radius: 6px;
+  color: #3b8aa0;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+  background-color: transparent;
+}
+
+.form .image-item__btn-wrapper input {
+  cursor: pointer;
+  color: #282c34;
+  background-color: #61dafb;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 0.6rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 15px;
+}
+
+.form section:last-of-type{
+  display: grid;
+  row-gap: 1rem;
+}
+
+.form section:last-of-type button {
+  border: none;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  background-color: #61dafb;
+  cursor: pointer;
+  color: #282c34;
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}

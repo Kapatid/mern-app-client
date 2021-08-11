@@ -1,0 +1,66 @@
+.app-header {
+  display: flex;
+  place-items: center;
+  place-self: start;
+  justify-content: space-between;
+  
+  width: 100%;
+  margin: 2rem 0 2rem 0;
+}
+
+#img-memories{
+  height: 4rem;
+}
+
+#avatar,
+#avatar-letter {
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#avatar-letter {
+  display: grid;
+  place-items: center;
+  background-color: #61dafb;
+  height: 40px;
+  width: 40px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #282c34;
+}
+
+.app-header div:first-child {
+  display: flex;
+  align-items: center;
+}
+.app-header h1 {
+  font-size: 2.5rem;
+}
+
+#btn-logout {
+  border: 2px solid #61dafb;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  color: #61dafb;
+  padding: 0.5rem 0.9rem 0.5rem 0.9rem;
+}
+
+.app-header div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+}
+
+/* MOBILE */
+@media (max-width: 35em) {
+  .app-header {
+    display: grid;
+    row-gap: 1.5rem;
+    justify-content: center;
+    place-items: center;
+  }
+}
