@@ -19,7 +19,6 @@ const Auth = () => {
   
   const submitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
 
     (!isSignup)
       ? dispatch(login(formData, history))

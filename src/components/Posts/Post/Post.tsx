@@ -8,11 +8,9 @@ import { IPost, updateFormPost, deletePost, likePost } from '../../../features/p
 import './styles.css';
 import { IUser } from '../../../features/users/userSlice';
 
-type Props = {
+const Post: FC<{
   post: IPost;
-}
-
-const Post: FC<Props> = ({ post }) => {
+}> = ({ post }) => {
   const dispatch = useAppDispatch();
 
   const user : IUser | null = useAppSelector(state => state.user.user);
@@ -47,8 +45,8 @@ const Post: FC<Props> = ({ post }) => {
     setUserLiked(!userLiked);
   }
 
-  const handleDelete = () => {
-    dispatch(deletePost(post));
+  const handleDelete = async () => {
+    await dispatch(deletePost(post));
     setPostState(null);
   }
 

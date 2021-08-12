@@ -136,8 +136,16 @@ const Form = () => {
                             <div key={index} className="image-item">
                               <img src={image.dataURL} alt="" width="100" />
                               <div className="image-item__btn-wrapper">
-                                <input type='button' value='Update' onClick={() => onImageUpdate(index)}/>
-                                <input type='button' value='Remove' onClick={() => onImageRemove(index)}/>
+                                <input 
+                                  type='button' 
+                                  value='Update' 
+                                  onClick={() => onImageUpdate(index)}
+                                />
+                                <input 
+                                  type='button' 
+                                  value='Remove' 
+                                  onClick={() => onImageRemove(index)}
+                                />
                               </div>
                             </div>
                           ))

@@ -1,6 +1,6 @@
 import { ChangeEventHandler, FC } from "react";
 
-type Props = {
+const Input: FC<{
   type: string; 
   id: string; 
   name: string; 
@@ -8,17 +8,7 @@ type Props = {
   placeholder: string; 
   label: string;
   htmlFor: string;
-}
-
-const Input: FC<Props> = ({ 
-  type, 
-  id, 
-  name, 
-  onChange, 
-  placeholder,
-  label,
-  htmlFor,
-}) => {
+}> = ({ type, id, name, onChange, placeholder,label,htmlFor }) => {
 
   return (
     <section>

@@ -62,8 +62,7 @@ export const googleLogin = (profileObj: any, tokenId: any) => async (dispatch: a
 export const login = (formData: IUser, history: any) => async (dispatch: any) => {
   try {
     const data: any = await api.loginUser(formData);
-    console.log(data);
-    
+
     dispatch(setUser({ ...data.data.user, token: data.data.token }));
     history.push('/');
   } catch (error) {
