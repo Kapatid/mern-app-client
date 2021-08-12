@@ -43,7 +43,7 @@ const Auth = () => {
     }
   };
   const googleFailure = (error: any) => {
-    console.log(`%cERROR%c ${error}`, 'color: red');
+    console.log(`%cERROR%c ${JSON.stringify(error)}`, 'color: red');
   };
 
   return (
