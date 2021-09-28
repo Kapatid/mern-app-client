@@ -65,7 +65,7 @@ export const login = (formData: IUser, history: any) => async (dispatch: any) =>
 
     dispatch(setUser({ ...data.data.user, token: data.data.token }));
     history.push('/');
-  } catch (error) {
+  } catch (error: any) {
     console.log('%cERROR%c' + error.message, 'color: red');
   }
 }
@@ -76,7 +76,7 @@ export const signup = (formData: IUser, history: any) => async (dispatch: any) =
     
     dispatch(setUser({ ...data.data.user, token: data.data.token }));
     history.push('/');
-  } catch (error) {
+  } catch (error: any) {
     console.log('%cERROR%c' + error.message, 'color: red');
   }
 }

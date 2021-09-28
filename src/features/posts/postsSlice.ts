@@ -30,6 +30,10 @@ const initialState: PostState = {
   error: null
 };
 
+const logError = (error: any) => {
+  console.log('%c[ERROR]%c' + error.message, 'color: red');
+}
+
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
@@ -70,12 +74,15 @@ export const {
 export const getPosts = () => async (dispatch: any) => {  
   try {
     dispatch(setPostsStatus(PostsStatus.LOADING));
+
     const response = await api.fetchPosts();  
+
     dispatch(setPosts(response.data));
-  } catch (error) {
-    (error.message === 'Request aborted') ?
-    console.log('%c[ATTENTION]%c' + error.message, 'color: yellow') :
-    console.log('%cERROR%c' + error.message, 'color: red');
+    dispatch(setPostsStatus(PostsStatus.SUCCEEDED));
+  } catch (error: any) {
+    (error.message === 'Request aborted') 
+      ? console.log('%c[ATTENTION]%c' + error.message, 'color: yellow') 
+      : logError(error);
 
     dispatch(setPostsStatus(PostsStatus.FAILED));
   }
@@ -84,11 +91,13 @@ export const getPosts = () => async (dispatch: any) => {
 export const createPost = (post: IPost) => async (dispatch: any) => {
   try {
     dispatch(setPostsStatus(PostsStatus.CREATING));
+
     await api.createPost(post);
-    dispatch(setPostsStatus(PostsStatus.SUCCEEDED));
+
     dispatch(addPost(post));
+    dispatch(setPostsStatus(PostsStatus.SUCCEEDED));
   } catch (error) {
-    console.log('%cERROR%c' + error.message, 'color: red');
+    logError(error);
     dispatch(setPostsStatus(PostsStatus.FAILED));
   }
 }
@@ -99,15 +108,15 @@ export const updateFormPost = (post: IPost | null) => (dispatch: any) => {
 
 export const updatePost = (post: IPost) => async (dispatch: any) => {
   try {
-    api.updatePost(post);
+    await api.updatePost(post);
+    
     dispatch(setFormPost(null));
     dispatch(setPostsStatus(PostsStatus.SUCCEEDED));
   } catch (error) {
-    console.log('%cERROR%c' + error.message, 'color: red');
+    logError(error);
     dispatch(setPostsStatus(PostsStatus.FAILED));
   }
 }
-
 
 export const likePost = (
   post: IPost, 
@@ -119,11 +128,9 @@ export const likePost = (
   
   const idString = newLikes!.findIndex(id => id === userId);
 
-  if (idString === -1) {
-    newLikes!.push(userId);
-  } else {
-    newLikes = newLikes!.filter(id => id !== userId);
-  }
+  (idString === -1) 
+    ? newLikes!.push(userId)
+    : newLikes = newLikes!.filter(id => id !== userId);
 
   dispatch(updatePost({ ...post, likes: newLikes}));
   callback({ ...post, likes: newLikes});
@@ -133,7 +140,7 @@ export const deletePost = (post: IPost) => async (dispatch: any) => {
   try {
     await api.deletePost(post);
   } catch (error) {
-    console.log('%cERROR%c' + error.message, 'color: red');
+    logError(error);
     dispatch(setPostsStatus(PostsStatus.FAILED));
   }
 }

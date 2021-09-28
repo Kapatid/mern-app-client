@@ -32,7 +32,7 @@ const Post: FC<{
     if (formPost !== undefined && formPost._id === postState?._id) setPostState(formPost!);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formPost]);
-
+  
   const handleLike = () => {
     const userId = user?._id || user?.googleId;
 

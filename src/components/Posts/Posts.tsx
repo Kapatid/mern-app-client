@@ -6,25 +6,25 @@ import Post from './Post/Post';
 import { IPost } from '../../features/posts/postsSlice';
 import PostsStatus from '../../enums/postsStatus';
 
+const loadingStyles = {
+  placeSelf: 'center', 
+  marginLeft: '200px', 
+  height: '80px',
+  width: '80px'
+}
+
+const statusStyles = {
+  display: 'flex', 
+  placeSelf: 'center', 
+  marginLeft: '200px', 
+  alignItems: 'center',
+  height: '80px',
+  width: 'max-content'
+}
+
 const Posts = () => {
   const posts: IPost[] = useAppSelector(state => state.posts.posts);
   const postsStatus: PostsStatus = useAppSelector(state => state.posts.status);
-
-  const loadingStyles = {
-    placeSelf: 'center', 
-    marginLeft: '200px', 
-    height: '80px',
-    width: '80px'
-  }
-
-  const statusStyles = {
-    display: 'flex', 
-    placeSelf: 'center', 
-    marginLeft: '200px', 
-    alignItems: 'center',
-    height: '80px',
-    width: 'max-content'
-  }
 
   return (
     <>
